@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial;
+      text-align: center;
+      color: white;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 38px;
+    }
+
+    #message {
+      font-size: 20px;
+      margin: 20px;
+      min-height: 40px;
+    }
+
+    video {
+      width: 80%;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px white;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    /* floating hearts */
+    .heart {
+      position: absolute;
+      color: pink;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday My Love ❤️</h1>
+
+<div id="message"></div>
+
+<img id="slideshow" src="C:\Users\MD Rehan\Downloads\aqb2.jpeg">
+
+<video controls autoplay>
+  <source src="C:\Users\MD Rehan\Downloads\aqbklsm.mp4" type="video/mp4">
+</video>
+
+<audio autoplay loop>
+  <source src="C:\Users\MD Rehan\Downloads\tumtak.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  // typing effect
+  const text = "You are my happiness, my safe place, my everything 💖";
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      document.getElementById("message").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 50);
+    }
+  }
+  typing();
+
+  // slideshow
+  const images = ["C:\Users\MD Rehan\Downloads\aqb1.jpeg", "C:\Users\MD Rehan\Downloads\aqb1.jpeg", "C:\Users\MD Rehan\Downloads\aqb3.jpeg"];
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    document.getElementById("slideshow").src = images[index];
+  }, 2000);
+
+  // floating hearts
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (10 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
